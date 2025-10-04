@@ -1,0 +1,201 @@
+.features-page {
+  padding: 160px 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-page h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--accent, #7b5fff), var(--accent-2, #3ec1f0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features-page p.intro {
+  text-align: center;
+  font-size: 18px;
+  color: var(--muted, #555);
+  margin-bottom: 60px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 36px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  background: var(--surface, #fff);
+  padding: 32px 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm, 0 6px 16px rgba(0,0,0,0.08));
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s;
+  cursor: pointer;
+}
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(123, 95, 255, 0.2);
+  background: linear-gradient(180deg, #f9f9ff, #ffffff);
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent, #7b5fff), var(--accent-2, #3ec1f0));
+  box-shadow: 0 8px 20px rgba(123, 95, 255, 0.25);
+  transition: transform 0.3s, background 0.3s;
+}
+.feature-card:hover .feature-icon {
+  transform: rotate(10deg) scale(1.1);
+  background: linear-gradient(135deg, var(--accent-2, #3ec1f0), var(--accent-3, #ffb800));
+}
+
+.feature-card h3 {
+  margin: 15px 0 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent, #7b5fff);
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: var(--muted, #666);
+  line-height: 1.6;
+}
+
+/* Detailed Sections */
+.detailed-section {
+  margin-top: 80px;
+}
+.detailed-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: var(--accent, #7b5fff);
+}
+.detailed-section p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.detailed-section ul {
+  list-style: disc;
+  padding-left: 20px;
+  color: #444;
+}
+.detailed-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Stats Section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 60px 0;
+  text-align: center;
+}
+.stat-box {
+  background: var(--surface, #fff);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm, 0 4px 14px rgba(0,0,0,0.08));
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.stat-box:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(123, 95, 255, 0.2);
+}
+.stat-box h3 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--accent, #7b5fff), var(--accent-2, #3ec1f0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-box p {
+  margin: 8px 0 0;
+  color: #555;
+  font-size: 15px;
+}
+
+/* ===================== */
+/* RESPONSIVENESS FIXES  */
+/* ===================== */
+
+/* Tablet screens */
+@media (max-width: 992px) {
+  .features-page {
+    padding: 120px 15px 50px;
+  }
+
+  .features-page h1 {
+    font-size: 32px;
+  }
+
+  .features-page p.intro {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .detailed-section h2 {
+    font-size: 24px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+  .features-page {
+    padding: 100px 12px 40px;
+  }
+
+  .features-page h1 {
+    font-size: 26px;
+  }
+
+  .features-page p.intro {
+    font-size: 15px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 18px;
+  }
+
+  .feature-card p {
+    font-size: 14px;
+  }
+
+  .stat-box {
+    padding: 20px;
+  }
+
+  .stat-box h3 {
+    font-size: 22px;
+  }
+
+  .stat-box p {
+    font-size: 14px;
+  }
+}

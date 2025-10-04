@@ -1,0 +1,77 @@
+/* ========== Footer: force one-row + equal spacing between sections ========== */
+/* Put this after Bootstrap / other CSS so it overrides column rules */
+
+footer {
+  padding: 10px 0;
+  background: var(--surface);
+}
+
+/* Turn the footer row into a controlled flex row */
+.row.foot-grid {
+  display: flex !important;
+  justify-content: space-between;      /* center the whole group */
+  align-items: flex-start;
+  gap: 26px;                    /* <-- equal spacing between each section */
+  flex-wrap: nowrap !important; /* keep all 4 sections in one row */
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Make the bootstrap columns use content width (so gap is the spacing) */
+/* and remove the 25% width behavior that causes uneven spacing */
+.row.foot-grid > .col-lg-3,
+.row.foot-grid > .col-md-6,
+.row.foot-grid > .col-sm-12 {
+  flex: 0 1 auto !important;   /* allow shrinking if needed, do not force equal width */
+  width: auto !important;
+  max-width: none !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  box-sizing: border-box;
+}
+
+/* Keep heading & link styles */
+.foot-grid h4 {
+  margin-bottom: 16px;
+  color: var(--accent-2);
+  font-weight: 900;
+}
+
+.foot-grid p,
+.foot-grid a {
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* make link elements inline-block so they keep their flow inside the column */
+.foot-grid a {
+  display: inline-block;
+}
+
+.foot-grid a:hover {
+  color: var(--accent-2);
+  text-decoration: underline;
+}
+
+/* responsive: on narrow screens, revert to stacked layout */
+@media (max-width: 991px) {
+  .row.foot-grid {
+    flex-wrap: wrap !important;
+    justify-content: center;
+    gap: 20px;
+  }
+  .row.foot-grid > .col-lg-3,
+  .row.foot-grid > .col-md-6,
+  .row.foot-grid > .col-sm-12 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* If there is still an unwanted large horizontal space, reduce gap */
+@media (min-width: 1200px) {
+  .row.foot-grid { gap: 28px; } /* tweak for very large screens */
+}

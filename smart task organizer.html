@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Task Organizer - Tasks</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header"></header>
+
+    <div class="task-page">
+      <div class="task-stats">
+        <div class="stat-box">Total Tasks: <span id="total">0</span></div>
+        <div class="stat-box">Completed: <span id="completed">0</span></div>
+        <div class="stat-box">Pending: <span id="pending">0</span></div>
+      </div>
+
+      <div class="task-container">
+        <form class="task-form" id="taskForm">
+          <input type="text" id="taskName" placeholder="Task Name" required />
+          <textarea id="taskDesc" placeholder="Description"></textarea>
+          <input type="time" id="taskTime" required />
+          <input type="date" id="taskDate" required />
+          <select id="taskPriority" required>
+            <option value="" hidden>Select Priority</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <select id="taskType" required>
+            <option value="" hidden>Select Type</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Event">Event</option>
+          </select>
+          <button
+            type="submit"
+            id="taskSubmitBtn"
+            style="
+              background: linear-gradient(
+                90deg,
+                var(--accent),
+                var(--accent-2)
+              );
+            "
+          >
+            Add Task
+          </button>
+        </form>
+
+        <div id="toastContainer"></div>
+        <div class="task-list-wrapper">
+          <div class="task-filters">
+            <input type="text" id="searchTask" placeholder="Search tasks..." />
+            <select id="filterPriority">
+              <option value="">All Priorities</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <select id="filterType">
+              <option value="">All Types</option>
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Event">Event</option>
+            </select>
+          </div>
+          <div class="task-list" id="taskList" aria-live="polite">
+            <div class="placeholder">Your tasks will be listed here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="calendarSection" class="calendar-section">
+      <h2 class="title">Task Calendar</h2>
+      <br />
+      <div class="calendar-header">
+        <button id="prevMonth">◀</button>
+        <h3 id="monthYear"></h3>
+        <button id="nextMonth">▶</button>
+      </div>
+
+      <div class="calendar-grid" id="calendarGrid" aria-hidden="false"></div>
+      <div id="taskPreview" class="preview-backdrop" aria-hidden="true">
+        <div class="task-card" role="dialog" aria-modal="true">
+          <div class="task-card-header">
+            <h4 id="previewDate"></h4>
+            <button id="closePreview" aria-label="Close preview">✕</button>
+          </div>
+          <div id="previewList" class="preview-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="analytics" class="dashboard-section">
+      <h2>📊 Analytics Dashboard</h2>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Completion Status</h3>
+          <canvas id="completionChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Priority Breakdown</h3>
+          <canvas id="priorityChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Task Types</h3>
+          <canvas id="typeChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer"></footer>
+
+    <script src="data/script.js"></script>
+    <script src="data/navbar.js"></script>
+    <script src="data/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
